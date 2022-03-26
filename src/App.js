@@ -8,9 +8,9 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Mainpage />}/>
-      <Route path="/:productId" element={<ProductDetail />} />
-      <Route path="/cart" element={<Cart />} />
+      <Route exact path="/" element={<Mainpage />}/>
+      <Route exact path="/:productId" element={<ProductDetail />} />
+      <Route exact path="/cart" element={<Cart />} />
     </Routes>
   );
 }
