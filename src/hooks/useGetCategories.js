@@ -8,7 +8,7 @@ const GET_CATEGORIES = gql`
     }
 `
 
-export default function getCategories() {
+export default function useGetCategories() {
     const { data } = useQuery(GET_CATEGORIES)
     return data
 }

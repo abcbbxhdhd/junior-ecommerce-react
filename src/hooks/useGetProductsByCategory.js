@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client"
 
 const GET_PRODUCTS_BY_CATEGORY = gql`
-    query($categoryName: String) {
+    query($categoryName: String!) {
         category(input: {title: $categoryName}) {
             name
             products {
