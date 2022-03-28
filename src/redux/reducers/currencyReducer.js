@@ -1,5 +1,4 @@
-const initialState = {
-}
+const initialState = "USD"
 
 export function setCurrentCurrency(currency) {
     return {

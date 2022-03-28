@@ -23,13 +23,13 @@ export default function ProductsGrid() {
     }, [data])
 
     const productsToRender = products.map(product => {
-        const price =  product.prices.find(price => price.currency.label === currentCurrency.label)
+        const price =  product.prices.find(price => price.currency.label === currentCurrency)
         return <ProductImage 
                     id={product.id} 
                     imgUrl={product.gallery[0]} 
                     name={product.name} 
                     inStock={product.inStock}
-                    price={{symbol: product.prices[0].currency.symbol, amount: product.prices[0].amount}}/>
+                    price={{symbol: price.currency.symbol, amount: price.amount}}/>
     })
 
     return (
