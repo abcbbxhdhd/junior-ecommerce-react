@@ -8,12 +8,12 @@ import store from "./redux/index"
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
+  <ApolloProvider client={client}>
     <Provider store={store}>
-      <ApolloProvider client={client}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
-      </ApolloProvider>
-    </Provider>,
+    </Provider>
+  </ApolloProvider>,
   document.getElementById('root')
 );

@@ -1,6 +1,4 @@
-const initialState = {
-    products: []
-}
+const initialState = []
 
 export function addProduct(id) {
     return {
