@@ -1,0 +1,51 @@
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-categories {
+    display: flex;
+    gap: 32px;
+    margin-left: 117px;
+}
+
+.right-section {
+    gap: 22px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 101px;
+}
+
+.ri-shopping-cart-2-line {
+    font-size: 17px;
+}
+
+.select-currency {
+    border: 0;
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: 500    ;
+}
+
+.nav-header-one {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.nav-header-one_focused {
+    font-weight: 600;
+    font-size: 16px;
+    color: #5ECE7B;
+    border-bottom: 2px solid #5ECE7B;
+}
+
+
+
+
+
+
+
+
