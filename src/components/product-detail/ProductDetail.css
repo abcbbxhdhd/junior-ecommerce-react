@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.image-carousel {
+    margin-top: 72px;
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.image-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.image-big-current {
+    height: 550px;
+}
+
+.image-small-carousel {
+    height: 96px;
+    cursor: pointer;
+}
+
+.sections-flex {
+    display: flex;
+}
+
+.product-features {
+    margin-left: 100px;
+    margin-top: 165px;
+}
+
+.pr-brand {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.pr-name {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.attribute-type-name {
+    font-family: 'Roboto Condensed';
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.attr-row {
+    display: flex;
+    column-gap: 12px;
+}
+
+.item-attr {
+    height: 45px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 12px 12px 12px 12px;
+    cursor: pointer;
+}
+
+.item-attr-selected {
+    background: black;
+    color: white;
+    height: 45px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 12px 12px;
+}
+
+.item-attr-name {
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.description-product-detail {
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.add-to-cart-btn {
+    background: #5ECE7B;
+    border: 0;
+    color: white;
+    width: 292px;
+    height: 52px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.attribute-price-value {
+    font-size: 24px;
+    font-weight: 700;
+}
+
