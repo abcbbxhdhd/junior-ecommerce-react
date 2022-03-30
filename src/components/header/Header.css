@@ -1,3 +1,4 @@
+
 header {
     height: 80px;
     display: flex;
@@ -59,6 +60,137 @@ header {
     font-size: 14px;
     font-weight: 500;
     color: white;
+}
+
+.cart-overlay-img {
+    width: 105px;
+    height: 137px;
+}
+
+.cart-overlay-item {
+    margin-top: 45px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-overlay-attributes {
+    display: flex;
+    column-gap: 8px;
+}
+
+.cart-overlay-attribute_text {
+    padding: 3px 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 24px;
+    font-size: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.cart-overlay-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-overlay-name {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.cart-overlay-price_one {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.cart-overlay-extra-info {
+    column-gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.cart-overlay-counter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-overlay-counter_btn {
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cart-overlay-item-amount {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.overlay-display {
+    position: absolute;
+    right: 100px;
+    width: 325px;
+    padding: 8px 16px;
+    z-index: 10;
+    outline: 9999px solid rgba(0,0,0,0.5)
+}
+
+.overlay-title {
+    display: flex;
+}
+
+.overlay-title > h1 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.overlay-title > h2 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.cart-overlay-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 42px;
+}
+
+.cart-overlay-total-text {
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.cart-overlay-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-overlay-btn_link {
+    height: 43px;
+    width: 140px;
+    background: #5ECE7B;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    border: 0;
+    cursor: pointer;
+}
+
+.cart-overlay-btn_link:active {
+    background: white;
+    border: 1px solid black;
+    color: black;
 }
 
 

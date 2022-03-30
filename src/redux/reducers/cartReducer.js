@@ -27,7 +27,7 @@ export default function cartReducer(state = initialState, action) {
         case "ADD_PRODUCT":
             let stateCopy = state
             let indexOf = state.findIndex(pr => {
-                return ((pr.productId === action.payload.productId) && (pr.attribute.value === action.payload.attribute.value) && (pr.attribute.attributeName === action.payload.attribute.attributeName))
+                return ((pr.productId === action.payload.productId) && (pr.value === action.payload.attribute.value) && (pr.attributeName === action.payload.attribute.attributeName))
             })
             if (indexOf !== -1) {
                 stateCopy[indexOf] = {...state[indexOf], amount: state[indexOf].amount + 1}
@@ -36,7 +36,16 @@ export default function cartReducer(state = initialState, action) {
             }
             return stateCopy
         case "REMOVE_PRODUCT":
-            return state.filter(product => product.id !== action.payload)
+            let productIndex = state.findIndex(pr => pr.id === action.payload)
+            if (state[productIndex].amount > 1) {
+                return state.map((pr, idx) => {
+                    if (productIndex === idx) {
+                        return {...pr, amount: pr.amount - 1}
+                    }
+                })
+            } else {
+                return state.filter(pr => pr.id !== action.payload)
+            }
         default:
             return state
     }
