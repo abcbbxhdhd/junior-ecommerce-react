@@ -20,8 +20,12 @@ export default function ProductFeatures({product}) {
             } else {
                 copy.push(attribute)
             }
-            return copy
+            return [...copy]
         })
+    }
+
+    function isSelectedAttribute(displayValue, attributeName) {
+        return selectedAttributes.findIndex(attr => attr.value === displayValue && attr.attributeName === attributeName) !== -1
     }
 
     function handleAddProduct() {
@@ -40,9 +44,9 @@ export default function ProductFeatures({product}) {
                 <div className="attr-row">
                    {attr.items.map(item => {
                        if (attr.type === "swatch") {
-                           return (<div onClick={() => handleAttributeSelect({type: attr.type, value: item.displayValue, attributeName: attr.name})} style={{background: `${item.displayValue}`}} className={selectedAttributes.find(attr => attr.value === item.displayValue) ? "item-attr-selected" : "item-attr"}></div>)
+                           return (<div onClick={() => handleAttributeSelect({type: attr.type, value: item.displayValue, attributeName: attr.name})} style={{background: `${item.displayValue}`}} className={isSelectedAttribute(item.displayValue, attr.name) ? "item-attr-selected" : "item-attr"}></div>)
                        } else {
-                           return (<div onClick={() => handleAttributeSelect({type: attr.type, value: item.displayValue, attributeName: attr.name})} className={selectedAttributes.find(attr => attr.value === item.displayValue) ? "item-attr-selected" : "item-attr"}><p className="item-attr-name">{item.displayValue}</p></div>)
+                           return (<div onClick={() => handleAttributeSelect({type: attr.type, value: item.displayValue, attributeName: attr.name})} className={isSelectedAttribute(item.displayValue, attr.name) ? "item-attr-selected" : "item-attr"}><p className="item-attr-name">{item.displayValue}</p></div>)
                        }
                    })}
                 </div>
