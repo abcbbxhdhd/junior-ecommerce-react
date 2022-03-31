@@ -196,6 +196,16 @@ header {
     color: black;
 }
 
+.ri-shopping-bag-2-line {
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.cart-overlay-attribute_swatch {
+    width: 24px;
+    height: 24px;
+}
+
 
 
 

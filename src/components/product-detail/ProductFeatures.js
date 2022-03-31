@@ -6,7 +6,6 @@ import { nanoid } from "nanoid"
 
 
 export default function ProductFeatures({product}) {
-    const cart = useSelector(state => state.products)
     const currentCurrency = useSelector(state => state.currentCurrency)
     const [selectedAttributes, setSelectedAttributes] = useState([])
     const dispatch = useDispatch()
@@ -75,7 +74,7 @@ export default function ProductFeatures({product}) {
             {attributesToRender}
             {priceToRender}
             { 
-                selectedAttributes.length > 0
+                selectedAttributes.length > 0 || product.attributes.length < 1
                 ? <button onClick={handleAddProduct} className="add-to-cart-btn">ADD TO CART</button>
                 : <button onClick={handleDisabledButtonClick} className="add-to-cart-btn">ADD TO CART</button>
             }
