@@ -22,18 +22,21 @@ header {
 
 .ri-shopping-cart-2-line {
     font-size: 17px;
+    cursor: pointer;
 }
 
 .select-currency {
     border: 0;
     background-color: transparent;
     font-size: 18px;
-    font-weight: 500    ;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 .nav-header-one {
     font-weight: 400;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .nav-header-one_focused {

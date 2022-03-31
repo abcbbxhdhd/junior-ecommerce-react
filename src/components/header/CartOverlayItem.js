@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client"
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { GET_PRODUCT_BY_ID } from "../../common/queries"
-import { addProduct, removeProduct } from "../../redux/reducers/cartReducer"
+import { plusOneProduct, removeProduct } from "../../redux/reducers/cartReducer"
 
 export default function CartOverlayItem(props) {
     const {data, loading, error} = useQuery(GET_PRODUCT_BY_ID, {
@@ -14,8 +14,8 @@ export default function CartOverlayItem(props) {
     const dispatch = useDispatch()
     const currentCurrency = useSelector(state => state.currentCurrency)
 
-    function handleAddProduct(product) {
-        dispatch(addProduct(product))
+    function handlePlusOneProduct(id) {
+        dispatch(plusOneProduct(id))
     }
 
     function handleRemoveProduct(id) {
@@ -53,9 +53,9 @@ export default function CartOverlayItem(props) {
                 </div>
             <div className="cart-overlay-extra-info">
                 <div className="cart-overlay-counter">
-                    <button onClick={handleAddProduct} className="cart-overlay-counter_btn">+</button>
+                    <button onClick={() => handlePlusOneProduct(props.product.id)} className="cart-overlay-counter_btn">+</button>
                     <h3 className="cart-overlay-item-amount">{props.product.amount}</h3>
-                    <button onClick={handleRemoveProduct} className="cart-overlay-counter_btn">-</button>
+                    <button onClick={() => handleRemoveProduct(props.product.id)} className="cart-overlay-counter_btn">-</button>
                 </div>
                 <img className="cart-overlay-img" src={product.gallery[0]}></img>
             </div>

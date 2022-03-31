@@ -33,8 +33,10 @@ export default function ProductFeatures({product}) {
             productId: product.id,
             id: nanoid(),
             attribute: selectedAttributes,
-            amount: 1
+            amount: 1,
+            prices: product.prices
         }))
+        alert(`${product.brand} ${product.name} added to cart`)
     }
 
     const attributesToRender = product.attributes.map(attr => {
@@ -62,6 +64,9 @@ export default function ProductFeatures({product}) {
                         <p className="attribute-price-value">{price.currency.symbol + price.amount}</p>
                     </div>
 
+    function handleDisabledButtonClick() {
+        alert("You need to choose attributes.")
+    }
 
     return( 
         <div className="product-features">
@@ -69,7 +74,11 @@ export default function ProductFeatures({product}) {
             <h2 className="pr-name">{product.name}</h2>
             {attributesToRender}
             {priceToRender}
-            <button onClick={handleAddProduct}className="add-to-cart-btn">ADD TO CART</button>
+            { 
+                selectedAttributes.length > 0
+                ? <button onClick={handleAddProduct} className="add-to-cart-btn">ADD TO CART</button>
+                : <button onClick={handleDisabledButtonClick} className="add-to-cart-btn">ADD TO CART</button>
+            }
             <p className="description-product-detail">{product.description.replace(/(<([^>]+)>)/ig, '')}</p>
         </div>
     )

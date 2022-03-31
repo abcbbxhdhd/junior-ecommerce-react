@@ -1,3 +1,5 @@
+import equal from "fast-deep-equal"
+
 const initialState = []
 
 // {
@@ -8,6 +10,13 @@ const initialState = []
 //         value: ""
 //     }
 // }
+export function plusOneProduct(id) {
+    return {
+        type: "PLUS_ONE_PRODUCT",
+        payload: id
+    }
+}
+
 export function addProduct(product) {
     return {
         type: "ADD_PRODUCT",
@@ -26,22 +35,24 @@ export default function cartReducer(state = initialState, action) {
     switch (action.type) {
         case "ADD_PRODUCT":
             let stateCopy = state
-            let indexOf = state.findIndex(pr => {
-                return ((pr.productId === action.payload.productId) && (pr.value === action.payload.attribute.value) && (pr.attributeName === action.payload.attribute.attributeName))
-            })
-            if (indexOf !== -1) {
-                stateCopy[indexOf] = {...state[indexOf], amount: state[indexOf].amount + 1}
-            } else {
-                stateCopy.push(action.payload)
-            }
+            stateCopy.push(action.payload)
             return stateCopy
+        case "PLUS_ONE_PRODUCT":
+            return state.map(pr => {
+                if (pr.id === action.payload) {
+                    return {...pr, amount: pr.amount + 1} 
+                }
+                return pr
+            })
         case "REMOVE_PRODUCT":
             let productIndex = state.findIndex(pr => pr.id === action.payload)
+            console.log(productIndex)
             if (state[productIndex].amount > 1) {
                 return state.map((pr, idx) => {
                     if (productIndex === idx) {
                         return {...pr, amount: pr.amount - 1}
                     }
+                    return pr
                 })
             } else {
                 return state.filter(pr => pr.id !== action.payload)

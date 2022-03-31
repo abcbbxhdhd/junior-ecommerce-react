@@ -1,10 +1,13 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router"
 import CartOverlayItem from "./CartOverlayItem"
 
 export default function CartOverlay() {
     const cartProducts = useSelector(state => state.products)
     const [isOverlayToggled, setIsOverlayToggled] = useState(false)
+    const currentCurrency = useSelector(state => state.currentCurrency)
+    const navigate = useNavigate()
 
     const productAmount = () => {
         let value = 0;
@@ -18,9 +21,18 @@ export default function CartOverlay() {
         setIsOverlayToggled(prev => !prev)
     }
 
+    function navigateToCart() {
+        navigate('/cart')
+    }
+
     const amount = productAmount()
     const productsToRender = cartProducts.map(product => {
         return <CartOverlayItem product={product}/> 
+    })
+
+    let totalPrice = 0;
+    cartProducts.forEach(pr => {
+        totalPrice += pr.amount * pr.prices.find(price => price.currency.label === currentCurrency).amount
     })
 
     return (
@@ -40,10 +52,10 @@ export default function CartOverlay() {
                     {productsToRender} 
                 <div className="cart-overlay-total">
                     <h3 className="cart-overlay-total-text">Total</h3>
-                    <h3 className="cart-overlay-total-text"></h3>     
+                    <h3 className="cart-overlay-total-text">{Math.round(totalPrice)}</h3>     
                 </div>
                 <div className="cart-overlay-links">
-                    <button className="cart-overlay-btn_link">VIEW BAG</button>
+                    <button onClick={navigateToCart} className="cart-overlay-btn_link">VIEW BAG</button>
                     <button className="cart-overlay-btn_link">CHECK OUT</button>
                 </div>    
                 </div>
